@@ -1,0 +1,101 @@
+﻿@model TagHelpersDemo.Models.Employee
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@* <a href="/Home/Contact">Contact Page 1</a>
+<br />
+@Html.ActionLink("Contact Page 2","Contact","Home")
+<br />
+<a href="@Url.Action("Contact","Home")">Contact Page 3</a>
+<br />
+<a asp-controller="Home" asp-action="Contact">Contact Page 4</a> *@
+
+@* <a href="/Home/Contact/1">Contact Page 1</a>
+<br />
+@Html.ActionLink("Contact Page 2", "Contact", "Home",new {id=1})
+<br />
+<a href="@Url.Action("Contact","Home", new {id=1})">Contact Page 3</a>
+<br />
+<a asp-controller="Home" asp-action="Contact" asp-route-id="1">Contact Page 4</a> *@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <form asp-action="Index" asp-controller="Home" method="post">
+
+                <label asp-for="Name">Enter Name: </label>
+                <input asp-for="Name" placeholder="Enter Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <br />
+
+                <label asp-for="Age">Enter Age: </label>
+                <input asp-for="Age" placeholder="Enter Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+                <br />
+                
+                <label asp-for="Email">Enter Email: </label>
+                <input asp-for="Email" placeholder="Enter Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <br />
+                
+                <label asp-for="Password">Enter Password: </label>
+                <input asp-for="Password" placeholder="Enter Email" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+                <br />
+
+                <label asp-for="ConfirmPassword">Enter Confirm Password: </label>
+                <input asp-for="ConfirmPassword" placeholder="Enter Confirm Password" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                <br />
+
+                <label asp-for="WebsiteURL"></label>
+                <input asp-for="WebsiteURL" placeholder="Enter WebsiteURL" class="form-control" />
+                <span asp-validation-for="WebsiteURL" class="text-danger"></span>
+                <br />
+
+                <label asp-for="Gender">Select Gender:</label>
+                <select asp-for="Gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()">
+                    <option>Select Gender</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+                <br />
+
+                <label asp-for="Salary">Enter Salary:</label>
+                <input asp-for="Salary" placeholder="Enter Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+                <br />
+                
+                <label asp-for="Married">Married:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="Married" value="Yes">
+                    <label class="form-check-label">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="Married" value="No">
+                    <label class="form-check-label">
+                        No
+                    </label>
+                </div>
+                <span asp-validation-for="Married" class="text-danger"></span>
+                <br />
+                
+                <label asp-for="Description">Enter Description:"</label>
+                <textarea asp-for="Description" class="form-control" placeholder="Enter Description" rows="5"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+                <br />
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <input type="submit" class="btn btn-outline-primary w-100" value="Submit" />
+            </form>
+        </div>
+    </div>
+</div>
